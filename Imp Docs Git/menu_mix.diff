@@ -1,0 +1,17 @@
+--- menu1.txt	2020-03-01 18:26:10.452172629 +0530
++++ menu2.txt	2020-03-01 18:26:35.762106896 +0530
+@@ -1,11 +1,6 @@
+-Menu1:
+-
+-
++Menu:
+ 
+ Apples
+-
+ Bananas
+-
+-Oranges
+-
+-Pears
++Grapes
++Strawberries

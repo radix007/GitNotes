@@ -1,0 +1,2727 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Git</title>
+	<meta name='Generator' content='Zim 0.72.1'>
+	<style type='text/css'>
+		a          { text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #4e9a06; margin-bottom: 0 }
+		h2         { color: #4e9a06; margin-bottom: 0 }
+		h3         { color: #4e9a06; margin-bottom: 0 }
+		h4         { color: #4e9a06; margin-bottom: 0 }
+		h5         { color: #4e9a06; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+
+		span.insen { color: grey                }
+
+		.pages {
+			max-width: 1000px;
+			 padding-left: 320px;
+		}
+		.menu{
+			float:left; width: 300px;
+		}
+		hr{clear:both;}
+	</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class='header'>
+	[ <span class='insen'>Prev</span> ]
+
+	[ <span class='insen'>Index</span> ]
+
+	[ <span class='insen'>Next</span> ]
+</div>
+
+<hr />
+
+<div class="menu">
+<ul>
+<li><a href="#Git" title="Git" class="page">Git</a>
+<ul>
+<li><a href="#Git:MODULE 1" title="MODULE 1" class="page">MODULE 1</a></li>
+<li><a href="#Git:MODULE 2" title="MODULE 2" class="page">MODULE 2</a></li>
+<li><a href="#Git:MODULE 3" title="MODULE 3" class="page">MODULE 3</a></li>
+<li><a href="#Git:MODULE 4" title="MODULE 4" class="page">MODULE 4</a></li>
+</ul></li>
+</ul>
+
+</div>
+
+<!-- Wiki content -->
+
+<div class='pages'>
+	<div class='heading'>
+	<h1>Git <a name='Git'></a></h1>
+	</div>
+
+	<div class='content'>
+	<p>
+Created Saturday 28 March 2020
+</p>
+
+
+	</div>
+
+	<br />
+
+	<div class='page-footer'>
+
+	</div>
+
+	<hr />
+
+	<div class='heading'>
+	<h1>Git <a name='Git:MODULE 1'></a></h1>
+	</div>
+
+	<div class='content'>
+	<p>
+Created Saturday 29 February 2020
+</p>
+
+<p>
+VCS -  Version Control System
+</p>
+
+<p>
+Most Primitve Form Of VCS - keeping historical copies , so that you can roll back if something happens in your current version  (Important for new modifications later on and you can see the code and think about some modifications that one can do .
+</p>
+
+<br>
+
+<p>
+Principle Behind VCS ::
+</p>
+
+<p>
+A version control system allows us to keep track of when and who did what changes to our files. Those can be code, configuration, images, or whatever else we need to track.
+</p>
+
+<p>
+Q1&gt; if i want to compare two versions of code then i can use this command 
+</p>
+
+<h1>DIFF::</h1>
+
+<p>
+<ul>
+<li>The diff tool shows all the differences between any type of file. By highlighting what’s changed, it helps us understand the changes and see how the files have been modified.</li>
+</ul>
+diff abc.py bcd.py 
+</p>
+
+<p>
+&lt; (The less than Symbol tells us that  the first line was removed  from the first file)<br>
+&gt; (The Greater than Symbol tells us that  the second line is added to the second file)<br>
+In other words one line got replaced with the other line
+</p>
+
+<br>
+
+<p>
+diff -u (Unified for u)
+</p>
+
+<p>
+- (Minus sign to mark lines that were removed)<br>
++(Plus sign to mark lines that were added )
+</p>
+
+<p>
+WDIFF - highlights the words that are changed in a file 
+</p>
+
+<p>
+TO MAKE A DIFF FILE ::
+</p>
+
+<p>
+diff  -u originalfile.py fixedfile.py &gt;  xyz.diff
+</p>
+
+<p>
+This xyz file cotains the newly fixed code <br>
+<i>##Now you can use this xyz file to patch the orginal file by patch originalfile.py  &lt; xyz.dff</i>  
+</p>
+
+<br>
+<br>
+
+<p>
+diff
+</p>
+
+<p>
+diff is used to find differences between two files. On its own, it’s a bit hard to use; instead, use it with diff -u to find lines which differ in two files:<br>
+diff -u
+</p>
+
+<p>
+diff -u is used to compare two files, line by line, and have the differing lines compared side-by-side in the same output. See below:
+</p>
+
+<h1>To show Change</h1>
+
+<br>
+
+<h1>•</h1>
+
+<p>
+<i>diff-u  old_file new_ file &gt; change.diff.</i>
+</p>
+
+<br>
+<br>
+
+<h1>patch</h1>
+
+<br>
+<br>
+
+<p>
+<ul>
+<li>Patch is useful for applying file differences. See the below example, which compares two files. The comparison is saved as a .diff file, which is then patched to the original file!</li>
+</ul>
+</p>
+
+<p>
+While diff is the command that generates the difference between two files, patch is the command that applies those differences to the original file.
+</p>
+
+<br>
+
+<p>
+Patch takes a file generated by  diff and applies the changes to the original file. 
+</p>
+
+<p>
+Syntax for patch ::
+</p>
+
+<p>
+patch oldfile.py &lt; fixedversion.diff
+</p>
+
+<p>
+the fixed code is added in the oldfile using the &lt; symbol .
+</p>
+
+<p>
+out put will be :: patch file oldfile.py/c
+</p>
+
+<br>
+
+<p>
+ To automatically apply changes to a file, we need to run the patch command on the file that we want to modify with the diff file as input.
+</p>
+
+<br>
+
+<h1>What is version control?</h1>
+
+<br>
+<br>
+
+<p>
+ By keeping track of the changes that we make to our files, a VCS lets us know when a file changed, who changed it, and also lets us easily roll back those changes.<br>
+ we can make edits to multiple files  and treat that collection of edits as a single change which is commonly known as a, commit. A VCS even provides a mechanism to allow the author of a commit to record why the change was made, including what bugs, tickets or issues were fixed by the change. This information can be a lifesaver when trying to understand a complex series of changes, or to debug some obscure issue.
+</p>
+
+<p>
+<ul>
+<li>A VCS Stores the code and cofiguration and as well  as the history of that configuration . Works Like A time machine .</li>
+</ul>
+</p>
+
+<p>
+With Vcs you can view  , track and select snapshots from the history of the projects ..
+</p>
+
+<p>
+GIT - Created by LINUS (2005)
+</p>
+
+<p>
+(SCM) - Software Control Management
+</p>
+
+<p>
+It's a distributed VCS, which means that each developer has a full copy of the repository. Because each contributor to a Git repo has a full copy of the repository, they can interact with the tracked files without needing a coordinating server. In turn, this improves collaboration.
+</p>
+
+<p>
+Repositories can be used by as many developers as needed.<br>
+Right on! Because of the way Git was designed, repositories can be useful for any number of developers, from one to thousands.
+</p>
+
+<p>
+Git retains local copies of repositories, resulting in fast operations.<br>
+Git's distributed architecture means each person contributing to a repository retains a full copy of the repository locally.
+</p>
+
+<p>
+Git allows you to review the history of your project.<br>
+With version control, if something goes wrong, we can fix it immediately and figure out what happened later.
+</p>
+
+<p>
+If something breaks due to a change  , you can fix the problem by reverting to a working version befor the change 
+</p>
+
+<br>
+<br>
+
+<p>
+GIT :: 
+</p>
+
+<br>
+<br>
+
+<p>
+The git directory acts as a database for all the changes tracked in Git and the working tree acts as a sandbox where we can edit the current versions of the files.
+</p>
+
+<br>
+
+<p>
+<b>Staging Area : </b><br>
+The staging area which is also known as the index is a file maintained by  Git that contains all of the information about what files and changes are going to go into your next command. 
+</p>
+
+<br>
+<br>
+<br>
+
+<h1>GIT COMMANDS ::</h1>
+
+<br>
+
+<h3>git config  --global  user.email "me@example.com"</h3>
+
+<br>
+
+<h3>git config --global  user.name  "My Name "</h3>
+
+<br>
+<br>
+
+<p>
+Now Make A git Directory ::
+</p>
+
+<p>
+mkdir Git 
+</p>
+
+<p>
+-&gt; cd Git <br>
+-&gt;git init <br>
+-&gt; cp abc.txt
+</p>
+
+<h5>-&gt;git add abc.txt    /// git add filename Syntax to add a file to the staging area</h5>
+
+<p>
+Now the files has been added to the staging are .
+</p>
+
+<p>
+<a href="file:///*" title="/*" class="file">/*</a> To check wheher the director is empty or not ls -al   */
+</p>
+
+<p>
+-&gt;git status 
+</p>
+
+<h5>/* Shows the Changes for next commit */</h5>
+
+<br>
+
+<p>
+-&gt; git commit 
+</p>
+
+<h5>/* When We run this command it tells git we want to save our changes , it opens  a text editor where we can enter a commit message */</h5>
+
+<br>
+
+<h2>git add -p COMMAND ::  To look at the changes we made   and accept them</h2>
+
+<br>
+
+<h2>git add * COMMAND ::</h2>
+
+<br>
+<br>
+
+<h5>Especially if we use a command like git add * , where the star is a file glob pattern  used in Bash that expands to all files.  This command will end up adding any change  done in the working tree to the staging area. While sometimes that might be what we want, it can also lead to some surprises.</h5>
+
+<br>
+
+<p>
+<b>The Git directory contains the history of all the files and changes. The working tree contains the current state of the project, including any changes that we've made. And the staging area contains the changes that have been marked to be included in the next commit.</b> 
+</p>
+
+<p>
+After modifying a file, we need to stage those changes and then commit them afterwards.
+</p>
+
+<p>
+There are 3 Cycles 
+</p>
+
+<p>
+<ol type="1" start="1">
+<li>Modified </li>
+<li>Staged</li>
+<li>Commit     	</li>
+</ol>
+</p>
+
+<p>
+We work on modified files in our working tree. When they're ready, we staged these files by adding them to the staging area. Finally, we commit the changes sitting in our staging area, which takes a snapshot of those files and stores them in the database that lives in the Git directory.
+</p>
+
+<br>
+<br>
+
+<h1>MODIFIED STATE</h1>
+
+<br>
+<br>
+
+<p>
+If a file is in the modified state, it means that we've made changes to it that we haven't committed yet.  The changes could be adding, modifying or deleting the contents of the file. Git notices anytime we modify our files. But won't store any changes until we add them to the staging area. 
+</p>
+
+<br>
+
+<p>
+NEXT STEP 
+</p>
+
+<br>
+
+<h2>STAGING AREA</h2>
+
+<p>
+The next step is to stage those changes. When we do this, our modified files become stage files. In other words, the changes to those files are ready to be committed to the project.   All files that are staged will be part of the next snapshot we take
+</p>
+
+<br>
+
+<h2>COMMIT AREA OR GIT DIRECTORY</h2>
+
+<p>
+ And Finally, when a file gets committed, the changes made to it are safely stored in a snapshot in the Git directory. 
+</p>
+
+<br>
+
+<h1>COMMANDS FOR MODIFYING A FILE</h1>
+
+<br>
+
+<p>
+-&gt; cd Git <br>
+-&gt;  open the file and then modify it <br>
+-&gt; check the staus after modifying the file <br>
+-&gt; git status<br>
+-&gt; git add  file.txt<br>
+-&gt; Now to add the changes to the next commit enter the following command
+</p>
+
+<p>
+-&gt; git commit -m  'Added some changes , Mention The changes here about what you are doing in this version' 
+</p>
+
+<p>
+-&gt; now  to check just type 
+</p>
+
+<p>
+-&gt; git status 
+</p>
+
+<br>
+<br>
+
+<h1>The Basic Git Workflow</h1>
+
+<br>
+
+<p>
+<ul>
+<li>Initially  a new file is untracked</li>
+</ul>
+</p>
+
+<p>
+Whenever we create a new file in the git directory , It is untracked , we can track it by using the <b>git add</b>  command .
+</p>
+
+<p>
+git add abc.txt 
+</p>
+
+<p>
+<ul>
+<li><b>Converts from untracked to tracked</b>  <b>And it will also change a file in the modified state to staged state .</b></li>
+</ul>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<h4>When committing new files or changes with git commit, the user is asked to provide a commit message. What will happen if an empty commit message is entered?</h4>
+
+<br>
+
+<h5>The commit will be aborted.</h5>
+
+<br>
+
+<h5>• You cannot commit with an empty commit message</h5>
+
+<br>
+
+<p>
+<ul>
+<li>We make changes to our files, stage them with git add, and  commit them with git commit.</li>
+</ul>
+</p>
+
+<br>
+
+<h1>Anatomy of a Commit Message</h1>
+
+<br>
+<br>
+
+<p>
+<ul>
+<li><b>A commit message is  generally broken up into a few sections  .The first line is a short summary of the commit followed by a blank line</b></li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li><b>This is followed by a full description of  the changes which details why they're  necessary and anything that might be  especially interesting about them  or difficult to understand</b></li>
+</ul>
+</p>
+
+<br>
+
+<p>
+First Line of A commit message &lt; 50 characters (contains a short description of what the commit changes are about)
+</p>
+
+<p>
+After the first line comes the empty line 
+</p>
+
+<p>
+The rest of text is usally kept under 72 characters  This text is intended to providea detailed explanation of what's going on with the change. It can reference bugs or<br>
+issues that will be fixed with the change. It can also include links to more information when relevant. The line limits can be annoying but they help in making the commit message be more digestible for the reader
+</p>
+
+<p>
+<b>Pound symbol acts as comments (#)</b>
+</p>
+
+<br>
+<br>
+
+<p>
+<b>WHAT SHOULD YOUR COMMIT MESSAGE LOOK LIKE ?</b>
+</p>
+
+<br>
+
+<p>
+<ul>
+<li>A short description of the change (up to 50 characters), followed by one or more paragraphs giving more details of the change (if needed)</li>
+</ul>
+</p>
+
+<br>
+
+<h2>Git Log</h2>
+
+<br>
+
+<p>
+<b>history of  the commits of our project using the git log command</b>
+</p>
+
+<p>
+<b>The first thing listed for each commit is its identifier,which is a long string of letters and numbers that uniquely identify each commit.</b> 
+</p>
+
+<br>
+
+<h1>GIT COMMIT</h1>
+
+<br>
+
+<p>
+Commit message style guide for Git . The first line of a commit message serves as a summary.  When displayed on the web, it's often styled as a heading, and in emails, it'st ypically used as the subject.  As such, you should capitalize it and omit any trailing punctuation.  Aim for about 50 characters, give or take, otherwise it may be painfully truncated in some contexts.  Write it, along with the rest of your message, in the imperative tense: "Fixbug" and not "Fixed bug" or "Fixes bug".  Consistent wording makes iteasier to mentally process a list of commits. Often times a subject by itself is sufficient.  When it's not, add ablank line (this is important) followed by one or more paragraphs hardwrapped to 72 characters.  Git is strongly opinionated that the authoris responsible for line breaks ; if you omit them, command line tooling will show it as one extremely long unwrapped line.  Fortunately, most text editors are capable of automating this.
+</p>
+
+<br>
+
+<h3>IMP LINKS</h3>
+
+<p>
+<a href="https://thoughtbot.com/blog/5-useful-tips-for-a-better-commit-message" title="https://thoughtbot.com/blog/5-useful-tips-for-a-better-commit-message" class="https">https://thoughtbot.com/blog/5-useful-tips-for-a-better-commit-message</a>
+</p>
+
+<br>
+
+<h2>Side Notes</h2>
+
+<br>
+
+<h5>To create a new git repo do this ::</h5>
+
+<br>
+
+<p>
+<ol type="1" start="1">
+<li>Create a new repo on github</li>
+<li>make a directory in your laptop and then cd to that directory </li>
+<li>git init </li>
+</ol>
+ 4. git add files<br>
+ 5. git commit<br>
+<ol type="1" start="7">
+<li>git remote add origin <a href="https://github.com/radix007/StopNvidiaInArch.git" title="https://github.com/radix007/StopNvidiaInArch.git" class="https">https://github.com/radix007/StopNvidiaInArch.git</a></li>
+<li>git push -u origin master</li>
+</ol>
+</p>
+
+<br>
+
+<h5>To Delete a Wiki ::</h5>
+
+<p>
+git clone <a href="https://github.com/ORG/REPO.wiki.git" title="https://github.com/ORG/REPO.wiki.git" class="https">https://github.com/ORG/REPO.wiki.git</a><br>
+cd REPO.wiki<br>
+rm Home.md<br>
+git add .<br>
+git commit -m "remove wiki homepage"<br>
+git push
+</p>
+
+<br>
+
+<h5>To know if there are any changes to The Git repo</h5>
+
+<p>
+→ git remote update 
+</p>
+
+<h5>To do these changes</h5>
+
+<p>
+→ git pull
+</p>
+
+<br>
+
+<h5>To merge a branch to master branch ::</h5>
+
+<p>
+→ git checkout master<br>
+→ git merge branchname<br>
+//Note if you have problems in merging using fast forward then you have to do a 3- way merge <br>
+//To do this open the file and choose what you want to keep and save changes <br>
+//after this <br>
+→ git add *<br>
+→ git commit <br>
+→ git push
+</p>
+
+<br>
+
+<h5>To Add a local branch from a local repo to remote repo ::</h5>
+
+<br>
+
+<p>
+→ git add <br>
+→ git commit <br>
+→ git push --set-upstream origin newbranchname
+</p>
+
+<br>
+
+<h5>git commit -a --amend // this will edit the original commit</h5>
+
+
+	</div>
+
+	<br />
+
+	<div class='page-footer'>
+
+	</div>
+
+	<hr />
+
+	<div class='heading'>
+	<h1>MODULE 2 <a name='Git:MODULE 2'></a></h1>
+	</div>
+
+	<div class='content'>
+	
+<br>
+
+<h3>Skipping the Staging Area</h3>
+
+<br>
+
+<p>
+<ul>
+<li>git commit -a is a shortcut to stage any changes to tracked files and commit them in one step. </li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li>We'll also use the -m flag  to add the commit message directly. </li>
+</ul>
+</p>
+
+<br>
+<br>
+
+<h2>Syntax TO commit when skipping staging are ::</h2>
+
+<br>
+
+<h5>git commit -a</h5>
+
+<br>
+
+<h5>And if u wanna add commit messgae directly the ::</h5>
+
+<br>
+
+<h5>git commit -a -m "  Enter Your Message Here   "</h5>
+
+<br>
+<br>
+
+<h5>Keep in mind that when you use the -m shortcut,you can only write short messages and can't usethe best practices regardingcommit descriptions that we talked about earlier.So it's best reserved for truly small changes thatdon't require extra context orexplanation, short and sweet.</h5>
+
+<br>
+
+<h5>Git uses the head alias to represent the currently checked out snapshot of your project.  This lets you know what the contents of your working directory should be.</h5>
+
+<br>
+
+<h5>We can even use git to go back in time and have head  representing old commit from  before the latest changes were applied  .In all cases, head is used to indicate what the currently checked out snapshot is.</h5>
+
+<br>
+
+<h5>Think about it as a bookmark that you  can use to keep track of where you are</h5>
+
+<br>
+<br>
+<br>
+
+<h1>Getting More Information About Our Changes</h1>
+
+<br>
+
+<h4>TO find the Latest Changes using git log</h4>
+
+<br>
+
+<h5>Use of -p FLAG</h5>
+
+<br>
+
+<p>
+<ul>
+<li><b>git log -p for  showing the associated patches.</b> 	</li>
+<li><b>TO find what caused the latest outage,we'll probably also need to look at the actual lines that changed in each commit. To do this with git log, we can use the -p flag.The p comes from patch, because using this flag gives us the patch that was created.</b></li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li><b>COMMIT ID -  That this is an identifier that we see next to the word commit in the log.</b> </li>
+</ul>
+</p>
+
+<h5>USE OF git show commit id</h5>
+
+<p>
+<b>Syntax</b> <br>
+git show commit id  Example git show 5465454545a5s4d5as45
+</p>
+
+<br>
+
+<h5>git show will show information about the commit and its associated patch.</h5>
+
+<br>
+
+<p>
+This will directly show the commit 	
+</p>
+
+<h5>USE OF git log — stat</h5>
+
+<p>
+<ul>
+<li>This will cause git log to show some stats about the changes in the commit,  like which files were changed and how many lines were added or removed.</li>
+</ul>
+</p>
+
+<h5>TO HELP KEEP TRACK OF CHANGES THERE IS THE</h5>
+
+<br>
+
+<h5>git diff COMMAND  //ONLY FOR UNSTAGED CHANGES BY DEFAULT</h5>
+
+<br>
+
+<p>
+<b>To help us keep track git gives us the git diff command.</b>
+</p>
+
+<p>
+This is equivalent to diff -u .
+</p>
+
+<p>
+<ul>
+<li><b>If we call git diff again, it won't show any differences , since git diff shows only unstaged changes by default.</b> </li>
+</ul>
+</p>
+
+<br>
+
+<h5>git diff — staged COMMAND ::  // FOR STAGED BUT NOT COMMITED</h5>
+
+<br>
+
+<p>
+<ul>
+<li><b>Instead, we can call git diff -- staged to see the changes that are staged but  not committed.  With this command, we can see the actual stage changes before we call git commit.</b> </li>
+</ul>
+</p>
+
+<h5>git add -p COMMAND</h5>
+
+<br>
+
+<p>
+<ul>
+<li><b>Something else we can do to review changes before adding them is to use the -p flag  with the git add command.</b></li>
+</ul>
+</p>
+
+<h5>•   When we use this flag, git will show us the change being added and ask us if we want to stage it or not. This way we can detect if there's any changes that we don't want to commit.</h5>
+
+<br>
+<br>
+<br>
+<br>
+
+<h1>Deleting and Renaming Files</h1>
+
+<br>
+
+<h5>git rm COMMAND  ::</h5>
+
+<br>
+
+<p>
+You can remove files from your repository with the git rm command, which  will stop the file from being tracked by git and remove it from the git directory. 
+</p>
+
+<p>
+TO COmmit to the rm commad  , you need to enter git commit ::<br>
+So after using the git rm ::<br>
+-&gt; git rm abc.py<br>
+-&gt; git commit -m "Deleting the abc.py file " 
+</p>
+
+<h3>git mv COMMAND::</h3>
+
+<br>
+
+<h5>Similar to the Linux `mv` command, this moves a file</h5>
+
+<p>
+-&gt; git mv abc.py abcd.py 
+</p>
+
+<p>
+// renames the file <br>
+-&gt; git status // to check the status of the repo 
+</p>
+
+<p>
+-&gt; git commit -m "FIle name changed "  // to commit the changes 
+</p>
+
+<h5>.gitignore files COMMAND::</h5>
+
+<br>
+
+<h5>• .gitignore files are used to tell the git tool to intentionally ignore some files in a given Git repository. For example, this can be useful for configuration files or metadata files that a user may not want to check into the master branch</h5>
+
+<br>
+
+<p>
+→ echo  .DS_STORE  &gt;   .gitignore <br>
+→ git commit -m 'Adding .gitignore file , ignoring .DS_STORE FILES 	 '
+</p>
+
+<br>
+
+<h5>// this will first tell the git to interntioally to ignore some files and then commit by using git commit..</h5>
+
+<br>
+
+<p>
+<img src="file:///home/root007/Documents/Workspace/IT%20COURSE/GIT%20COURSE/Screenshoy%20Git%20Cheat%20Sheet.png">
+</p>
+
+<br>
+<br>
+<br>
+
+<h1>Undoing Changes Before Committing</h1>
+
+<br>
+
+<p>
+To Undo any change or to go back to a previous state ::
+</p>
+
+<h5>just use this command ::</h5>
+
+<br>
+
+<h5>git checkout COMMAND ::</h5>
+
+<br>
+
+<h5>--&gt; cd Git</h5>
+
+<br>
+
+<h5>--&gt; // changes made in the file</h5>
+
+<br>
+
+<h5>→  now check git status</h5>
+
+<br>
+
+<h5>→   we can now see that the file is modified but has not been staged</h5>
+
+<br>
+
+<h5>→ now we can run git add to stage changes</h5>
+
+<br>
+
+<h5>OR</h5>
+
+<br>
+
+<h5>→    git checkout to discard changes</h5>
+
+<br>
+
+<h2>→ SYNTAX FOR Git Checkout</h2>
+
+<p>
+→ git checkout abc.py
+</p>
+
+<h5>USED TO REVERT CHANGES TO MODIFIED FILES BEFORE THEY GET STAGED . This command will restore  the file to the latest storage snapshot, which can be either committed or staged .</h5>
+
+<br>
+
+<h5>git checkout -p FLAG</h5>
+
+<p>
+<b>If you need to check out individual changes  instead of the whole file,  you can do that using the dash p flag.  This will ask you change by change if you want to go back to the previous snapshot or not.</b> 
+</p>
+
+<br>
+
+<h5>git reset COMMAND ::</h5>
+
+<br>
+
+<h5>// REMOVE CHANGES FROM THE STAGING AREA</h5>
+
+<br>
+
+<h5>// COUNTERPART OF git add COMMAND</h5>
+
+<br>
+
+<h5>// FOR UNDOING CHANGES IN STAGING AREA</h5>
+
+<br>
+
+<h5>//UNSTAGE CHANGES BY git reset</h5>
+
+<br>
+<br>
+<br>
+
+<h5>SYNTAX FOR git reset ::</h5>
+
+<p>
+→ git add abc.py<br>
+→ git add bef.py <br>
+<b>→ git reset HEAD "headfile.py"</b>
+</p>
+
+<p>
+<b>→ git status // Shows us that the given file is now untracked in our working tree and no longer staged ..</b> 
+</p>
+
+<h5>git reset -p FLAG COMMAND ::</h5>
+
+<br>
+
+<p>
+ <b>you remove changes from the staging area. You can use git reset dash p to get  git to ask you which specific changes you want to reset.</b> 
+</p>
+
+<p>
+At last commit the changes ::
+</p>
+
+<p>
+→ git commit -m "abcsahsajkdahs "
+</p>
+
+<br>
+<br>
+
+<h1>Amending Commits</h1>
+
+<br>
+<br>
+
+<h5>git commit --amend COMMAND ::</h5>
+
+<br>
+
+<h5>//AVOID AMENDING COMMITS THAT HAVE ALREADY BEEN MADE PUBLIC</h5>
+
+<br>
+<br>
+
+<p>
+When we run git commit --amend,
+</p>
+
+<p>
+<b>git will take whatever is currently in our staging area and run the git commit  workflow to overwrite the previous commit.</b> 
+</p>
+
+<h5>git commit --amend allows us to modify and add changes to the most recent commit.</h5>
+
+<br>
+
+<p>
+<b>While git --amend is okay for fixing up local commits,you shouldn't use it on public commits.Meaning, those that have been pushed toa public or shared repository </b><br>
+<b>This is because using --amend rewrites the git history removingthe previous commit and replacing it with the amended one.This can lead to some confusing situations whenworking with other peopleand should definitely be avoided.</b><br>
+<b>So remember, fixing up a local commit with amend is great and you can push it to a shared repository after you fixed it.But you should avoid amending commits that have already been made public.</b>
+</p>
+
+<p>
+EXAMPLE ::
+</p>
+
+<p>
+→ cd git <br>
+→ git add abc.py<br>
+→ git commit -m 'Adding two files '<br>
+// we say two files have been added but acually one file has been added , To fix this <br>
+→ git add def.py <br>
+→ git commit --amend // now we can change the commit message if we want too or can do whatever we want ,, in this commit both the files will be committed ..
+</p>
+
+<br>
+
+<h1>Rollbacks</h1>
+
+<br>
+
+<h5>git revert COMMAND ::</h5>
+
+<br>
+
+<h5>With git revert, a new commit is created with inverse changes. This cancels previous changes instead of making it as though the original commit never happened</h5>
+
+<br>
+
+<h5>if a particular line was added in the bad commit, then in the reverted commit,  the same line will be deleted</h5>
+
+<br>
+<br>
+
+<p>
+git revert will create a new commit, that is the opposite of everything in the given commit .We can revert the latest commit by using  the head alias that we mentioned before. 
+</p>
+
+<h5>EXAMPLE FOR git revert COMMAND ::</h5>
+
+<br>
+<br>
+
+<p>
+→ cd git <br>
+→ gedit abc.py  // make changes in the code <br>
+→  git commit -a -m 'Made some updates and fixed some bugs'  // commiting by skiipping staging area ,, this will lead to bugs as the file has not been tested yet and has some bugs of its own too <br>
+→ now to fix this will use the git revert command <br>
+→ git revert HEAD <br>
+Now we can make changes to the commit message as required  ::
+</p>
+
+<h5>The goal of these descriptions is to  help our future selves understand why things happen.</h5>
+
+<br>
+
+<p>
+Now lets look at the last two enteries in the log ::
+</p>
+
+<p>
+→ git log -p -2 (the -P parameter lets us see the patch created by the commit while the -2  perimeter limits the output to the last two entries. )
+</p>
+
+<br>
+
+<h1>Identifying a Commit</h1>
+
+<br>
+<br>
+
+<p>
+TO REVERT BACK FARTHER BACK IN TIME :: WHAT TO DO NOW ??? 
+</p>
+
+<p>
+WE CAN TARGET A SPECIFIC COMMIT BY USING ITS COMMIT ID ::
+</p>
+
+<br>
+
+<h5>COMMIT ID  ::</h5>
+
+<br>
+
+<p>
+<b>Commit IDs are those complicated looking strings that appear after the word commit  in the log messages.</b> 
+</p>
+
+<p>
+<b>The commit ID is the 40 character long string after the word commit, you really can't miss it. This long jumble of letters and numbers is actually something called a hash, which is calculated using an algorithm called SHA1 .</b>
+</p>
+
+<p>
+<b>Essentially, what this algorithm does is take a bunch of data as input and produce a 40 character string from the data as the output.</b> 
+</p>
+
+<p>
+<b>In the case of Git, the input is all information related to the commit, and  the 40 character string is the commit ID .</b>
+</p>
+
+<p>
+Although SHA1 is a part of the class of cryptographic hash functions,Git doesn't really use these hashes for security. Instead, they're used to guarantee the consistency of our repository .
+</p>
+
+<p>
+The chances of Two Commit id's to be same is not possible .. it can be possible but will take a lot of computing power. 
+</p>
+
+<br>
+<br>
+
+<p>
+<b>DATA INTEGRITY BY COMMIT ID</b>
+</p>
+
+<p>
+The data integrity offered by the commit ID means that if a bad disk ornetwork link corrupt some data in your repository, or worse, if someoneintentionally corrupt some data, Git can use the hash to spot that corruption. 
+</p>
+
+<br>
+
+<p>
+<b>EXAMPLE ::</b>
+</p>
+
+<p>
+We are trying to go back to the second last version<br>
+→ git log  -2 <br>
+→ git show commitid/154654151564  (you can just enter 5 or 6 characters and git will show you the commit id )	<br>
+→ git revert 545646464564  // Now you have to enter the reason for rollback 
+</p>
+
+<br>
+<br>
+
+<h5>CHEAT SHEET MODULE 2</h5>
+
+<br>
+<br>
+
+<p>
+<img src="file:///home/root007/Documents/Workspace/IT%20COURSE/GIT%20COURSE/Screenshot_2020-03-17%20Git%20Revert%20Cheat%20Sheet%20Coursera.png"><br>
+<a href="https://en.wikipedia.org/wiki/SHA-1" title="https://en.wikipedia.org/wiki/SHA-1" class="https">https://en.wikipedia.org/wiki/SHA-1</a><br>
+<a href="https://github.blog/2017-03-20-sha-1-collision-detection-on-github-com/" title="https://github.blog/2017-03-20-sha-1-collision-detection-on-github-com/" class="https">https://github.blog/2017-03-20-sha-1-collision-detection-on-github-com/</a>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h1>What is a branch?</h1>
+
+<br>
+
+<p>
+In Git, a branch atthe most basic level isjust a pointer to a particular commit. 
+</p>
+
+<p>
+But more importantly, it represents an independent line of development in a project. Of which the commit it points to is the latest link in a chain of developing history. 
+</p>
+
+<h5>MASTER BRANCH</h5>
+
+<p>
+The default branch that Git creates for you when a new reposit	ory initialized is called master. <br>
+The master branch is commonly used to represent the known good state of a project. 
+</p>
+
+<br>
+
+<h5>SEPERATE BRANCHES</h5>
+
+<p>
+When you want to develop a feature or try something new in your project, you can create a separate branch to do your work without worrying about messing up this current working state.<br>
+ By creating a new branch, we can experiment without breaking what already works.
+</p>
+
+<h1>Creating New Branches</h1>
+
+<br>
+<br>
+
+<p>
+<b>We can use the git branch command to list,create, delete, and manipulate branches.</b> 
+</p>
+
+<br>
+
+<h3>EXAMPLE AND COMMANDS FOR BRANCHES ::</h3>
+
+<br>
+<br>
+
+<h5>→ cd Git</h5>
+
+<br>
+
+<h5>→ git branch //shows all the branches ,, * current branch is indicated inthe command's output withan * in a different color.</h5>
+
+<br>
+
+<h5>→ git branch new-branch-name // creates a new branch you can name the branch anything</h5>
+
+<br>
+
+<h5>→ git branch // will show the new branch names</h5>
+
+<br>
+
+<h5>→ git checkout new-branch-name  // COMMAND TO SWITCH TO NEW-BRANCH</h5>
+
+<br>
+
+<h5>→ git branch  // WILL SHOW THE CURRENT BRNACH BY *</h5>
+
+<br>
+
+<h5>git checkout COMMAND :: SWITCH TO A NEW BRANCH</h5>
+
+<br>
+
+<p>
+<b>Checking out branches is similar in that,the working tree is updated to matchthe selected branch includingboth the files and the git history.</b>
+</p>
+
+<br>
+
+<p>
+W<b>e use git checkout to check outthe latest snapshot forboth files and for branches</b>	
+</p>
+
+<br>
+
+<h5>SHORTCUT TO CREATE NEW BRANCH AND SWITCH TO IT ::</h5>
+
+<br>
+
+<h5>→ git checkout -b newbranch // message displayed telling us that we have changed to a new branch .</h5>
+
+<br>
+
+<h5>→ git branch</h5>
+
+<br>
+
+<h5>→ git add abc.py</h5>
+
+<br>
+
+<h5>→ git commit -m 'Adding new file '</h5>
+
+<br>
+
+<h5>→ git log -2 // will show that the new file has been added to the git and head is pointed to the "newbranch"</h5>
+
+<br>
+<br>
+<br>
+<br>
+
+<h1>Working with Branches</h1>
+
+<br>
+<br>
+
+<h5>→ cd Git</h5>
+
+<br>
+
+<h5>→ git branch -d newbranch  // COMMAND TO DELETE A BRANCH  // if we try to delete it without merging then it will show erro</h5>
+
+<br>
+
+<h5>→ git branch -D newbranch1 // to delete a branch which has not been merged with the master branch</h5>
+
+<br>
+<br>
+
+<p>
+<b>When we switch branches in git,the working directory and commit history will bechanged to reflect the snapshotof our project in that branch.When we check out a new branch and commit on it,those changes will be added tothe history of that branch.</b>
+</p>
+
+<p>
+<b>Since free memory py was committed on another branch,it doesn't show up in the history orworking directory of the master branch.One thing to note after all this back and forth,is that each branch is just a pointer toa specific commit in a series of snapshots.</b>
+</p>
+
+<p>
+<b>It's very easy to create new branchesbecause there isn't any datathat needs to be copied around.When we switch to another branch,we check out a different commit and git updatesboth head and the contents of our working directory.Head floats around with us.It's like a free spirit</b>
+</p>
+
+<p>
+<b>If there are changes in the branch we want to delete thathaven't been merged back into the master branch,git will let us know with an error</b>
+</p>
+
+<br>
+<br>
+
+<h1>Merging</h1>
+
+<br>
+
+<p>
+<b>Merging is the term that Git uses for combining branch data and history together.</b>
+</p>
+
+<br>
+
+<h5>git merge COMMAND ::</h5>
+
+<br>
+
+<p>
+ <b>git merge command - which lets us take the independent snapshots and history of one Git branch, and tangle them into another.</b> 
+</p>
+
+<p>
+EXAMPLE :: 
+</p>
+
+<p>
+→ git branch <br>
+→ git merge even-better-branch <br>
+→ git log  //  We can see the git log to confirm that the even better feature and the master branch both point to the same commit 
+</p>
+
+<br>
+
+<p>
+<b>Git uses two different algorithms to perform a merge  ::</b>
+</p>
+
+<h5>1. Fast Forward Merge</h5>
+
+<p>
+This kind of merge occurs when all the commits in the checked out branch are also in the branch that's being merged.<br>
+If this is the case, we can say that the commit history of both branches doesn't diverge. In these cases, all Git has to do is update the pointers of the branches to the same commit, and no actual merging needs to take place. 
+</p>
+
+<br>
+
+<p>
+<img src="file:///home/root007/Documents/Workspace/IT%20COURSE/GIT%20COURSE/Screenshot_20200318_170525.png" width="1000">
+</p>
+
+<br>
+
+<h5>2. Three Way Merge</h5>
+
+<p>
+On the other hand, a three-way merge is performed when the history of the merging branches has diverged in some way, and there isn't a nice linear path to combine them via fast-forwarding. 
+</p>
+
+<p>
+<img src="file:///home/root007/Documents/Workspace/IT%20COURSE/GIT%20COURSE/Screenshot_20200318_170452.png" width="1000">
+</p>
+
+<br>
+<br>
+
+<h1>Merge Conflicts</h1>
+
+<br>
+<br>
+
+<p>
+When Two Files in master branch or any other branch has same edits in the same part of the same file . Then we encounter a Merge conflict .
+</p>
+
+<br>
+
+<h5>EXAMPLE TO SOLVE MERGE CONFLICT ::</h5>
+
+<p>
+→ git commit -a -m 'Adding a new comment '<br>
+→ git checkout newbranch <br>
+→ git commit -a -m 'Adding a new print line'<br>
+→ git checkout  master <br>
+→ git merge  newbranch // We get merge conflict errror 
+</p>
+
+<h5>TO resolve this Enter</h5>
+
+<p>
+→ git status <br>
+now open the file and edit the changes  <br>
+→ git add abc.py/filename // TO mark merge as resolved enter git add <br>
+→ git status // to check whether the merge conflict is still there <br>
+→ git commit // now enter the commit message note here merge commit message should be entered .
+</p>
+
+<p>
+LOG FORMAT TO UNDERSTAND HISTORY OF COMMIT // TO UNDERSTAND <br>
+git log --graph --oneline 
+</p>
+
+<br>
+
+<h5>git merge --abort COMMAND ::</h5>
+
+<br>
+
+<p>
+<b>If you want to throw the merge away and start over, </b><br>
+<b>This will stop the merge and reset the files inyour working tree back tothe previous commit before the merge ever happened .</b>
+</p>
+
+<br>
+
+<p>
+<img src="file:///home/root007/Documents/Workspace/IT%20COURSE/GIT%20COURSE/Screenshot_2020-03-17%20Git%20Branches%20and%20Merging%20Cheat%20Sheet%20Coursera.png">
+</p>
+
+	</div>
+
+	<br />
+
+	<div class='page-footer'>
+
+	</div>
+
+	<hr />
+
+	<div class='heading'>
+	<h1>MODULE 3 <a name='Git:MODULE 3'></a></h1>
+	</div>
+
+	<div class='content'>
+	<h1>What is GitHub?</h1>
+
+<br>
+
+<p>
+Git is a distributed version control system<br>
+Distributed means that each developer has a copy of the whole repository on their local machine. 
+</p>
+
+<p>
+Each copy is a peer of the others. But we can host one of these copies on a server and then use it as a remote repository for the other copies. This lets us synchronize work between copies through this server .
+</p>
+
+<h5>Git  free repository  :</h5>
+
+<p>
+<b>FOR OPEN SOURCE AND EDUCATIONAL USE</b> 
+</p>
+
+<h5>private Git server</h5>
+
+<p>
+<b>For real configuration and development work, you should use a secure and  private Git server, and limit the people authorized to work on it.</b> 
+</p>
+
+<br>
+
+<h1>Basic Interaction with GitHub</h1>
+
+<br>
+
+<h5>git clone COMMAND :: creates a local copy of the repository.</h5>
+
+<br>
+
+<p>
+→ git clone url 
+</p>
+
+<p>
+After making some changes to the file in the local repo and if you want to commit these changes in one go then 
+</p>
+
+<p>
+→ git commit -a -m 'Undoing past commits'
+</p>
+
+<h5>git push COMMAND  ::</h5>
+
+<br>
+
+<p>
+→ git push     
+</p>
+
+<h5>// We can send our changes to that remote repository by using the git push command which will gather all the snapshots we've taken and send them to the remote repository.</h5>
+
+<br>
+
+<h3>TO not enter password every time you enter git push ::</h3>
+
+<br>
+
+<h5>1. SSH key -pair</h5>
+
+<p>
+ // store the public key in our profile so that GitHub recognizes our compute
+</p>
+
+<h5>2.Credential helper</h5>
+
+<p>
+// Caches  our credentials for a time window so that we don't need to enter our password with every interaction. Git already comes with a credential helper baked in .
+</p>
+
+<br>
+
+<p>
+<b>To enable credential helper  ::</b>
+</p>
+
+<h3>→ git config --global credential.helper cache</h3>
+
+<br>
+
+<h5>We will need to enter our credentials once more , we will not have to enter our credentials for the next 15 minutes</h5>
+
+<br>
+
+<h5>git pull COMMAND :: Used to retreive new changes from our repo</h5>
+
+<br>
+
+<p>
+→ git pull <br>
+<img src="file:///home/root007/Documents/Workspace/IT%20COURSE/GIT%20COURSE/Screenshot_2020-03-19%20Basic%20Interaction%20with%20GitHub%20Cheat-Sheet%20Coursera.png">
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<h1>What is a remote?</h1>
+
+<br>
+
+<p>
+Remote repositories are a big part of the distributed nature of Git collaboration. It let lots of developers contribute to a project from their own workstations making changes to local copies of the project independently of one another. <br>
+When they need to share their changes, they can issue git commands to pull code from a remote repository or push code into one. <br>
+There are a bunch of ways to host remote repositories.
+</p>
+
+<h5>Alongside the local development branches like master,Git keeps copies of the commits that have been submitted to the remote repository and separate branches.If someone has updated a repository since the last time you synchronize your local copy,Git will tell you that it's time to do an update.</h5>
+
+<br>
+
+<h5>If you have your own local changes when you pull down the code from the remote repo,you might need to fix merge conflicts before you can push your own changes.In this way Git let's multiple people work onthe same project at the same time.</h5>
+
+<br>
+<br>
+
+<p>
+<b>HTTP is generally used to allow read only access to a repository. In other words, it lets people clone the contents of your repo without letting them push new contents to it. Conversely HTTPS and SSH, both provide methods of authenticating users so you can control who gets permission to push.</b>
+</p>
+
+<br>
+<br>
+
+<h1>Working with Remotes</h1>
+
+<br>
+<br>
+
+<h5>git remote -v COMMAND ::</h5>
+
+<br>
+
+<p>
+Git sets up that remote repository with the default origin name.  We can look at the configuration for  that remote by running git remote -v in the directory of the repo. 
+</p>
+
+<br>
+
+<p>
+→ git remove -v 	
+</p>
+
+<br>
+<br>
+
+<h5>Origin Repo ::</h5>
+
+<p>
+<b>Remote repositories have a name assigned to them, by default,  the assigned name is origin.  This lets us track more than one remote in the same Git directory.</b>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<h5>If we need to find more information about a remote branch, which command will help us?</h5>
+
+<br>
+
+<h5>git remote show origin COMMAND ::: To get More info about our repo</h5>
+
+<br>
+<br>
+<br>
+
+<h5>git branch -r COMMAND</h5>
+
+<br>
+
+<p>
+Whenever we're operating with remotes, Git uses remote branches  to keep copies of the data that's stored in the remote repository.  We could have a look at the remote branches that  our Git repo is currently tracking by running git branch -r. 
+</p>
+
+<h5>If we want to make a change to a remote branch   We have to Pull the remote branch, merge it with the local branch, then push it back to its origin .</h5>
+
+<br>
+<br>
+
+<h1>Fetching New Changes</h1>
+
+<br>
+
+<p>
+git fetch fetches remote updates but doesn't merge; git pull fetches remote updates and merges
+</p>
+
+<br>
+
+<p>
+In order to get the contents of a remote branch without automatically merging, which of these commands should we use  —&gt; git remote update
+</p>
+
+<p>
+If we need to find more information about a remote branch  → git remote show origin
+</p>
+
+<br>
+
+<h5>git fetch  COMMAND :: This command copies the commits done in the remote repository to the remote branches,so we can see what other people have committed.</h5>
+
+<br>
+
+<h5>git log orign/master COMMAND :: TO look at current commits in the remote repo</h5>
+
+<br>
+
+<h5>git merge origin master COMMAND :: If we want to integrate the branches into our master branch,we can perform a merge operation,which merges the origin/master branch into our local master branch.</h5>
+
+<br>
+<br>
+
+<h5>git fetch COMMAND ::</h5>
+
+<br>
+
+<h5>To  review the changes that happen in the remote repository.</h5>
+
+<br>
+<br>
+
+<h5>git merge COMMAND ::</h5>
+
+<br>
+
+<h5>TO merge into your local repo</h5>
+
+<br>
+<br>
+
+<h1>Updating the Local Repository</h1>
+
+<br>
+
+<h5>git pull COMMAND :: FAst Forward Merge</h5>
+
+<p>
+<b>Running git pull will fetch the remote copy of the current branch and automatically try to merge it into the current local branch</b>
+</p>
+
+<br>
+
+<h5>git checkout branch // To create local branch</h5>
+
+<br>
+
+<h5>If we have a new remote branch and if we do not have a local branch then you can do the following so that you have the up to date branches and files ::</h5>
+
+<br>
+
+<h5>→ git remote show origin // to find out which branches are not their</h5>
+
+<br>
+
+<h5>→ git checkout branchname // to create a new local branch and git now automatically updates the local branch</h5>
+
+<br>
+
+<h5>The working tree has been updated to the contents of the experimental branch.</h5>
+
+<br>
+
+<h5>git remote update COMMAND :: In order to get the contents of a remote branch without automatically merging, which of these commands should we use?</h5>
+
+<br>
+
+<p>
+If we want to get the contents of remote branches without automatically merging any contents into the local branches, we can call git remote update.<br>
+This will fetch the contents of all remote branches,so that we can just call checkout or merge as needed
+</p>
+
+<p>
+<img src="file:///home/root007/Documents/Workspace/IT%20COURSE/GIT%20COURSE/Screenshot_2020-03-19%20Git%20Remotes%20Cheat-Sheet%20Coursera.png">
+</p>
+
+<br>
+
+<h1>The Pull-Merge-Push Workflow</h1>
+
+<br>
+
+<h2>""&gt;&gt;&gt;"" ARE KNOWN AS CONFLICT MARKERS  they tell us about the conflicts while merging</h2>
+
+<br>
+<br>
+
+<h2>How to Fix 3 way  Merge ??</h2>
+
+<br>
+
+<p>
+→ git add -p abc.py   //After making some changes  and note that at the same time someone else is also making changes or has already made changes to the remote repo<br>
+→ git commit -m "Made some changes"<br>
+→ git push  // REJECTED MESSAGE ENCOUNTERED  FAILED TO PUSH SOME REFS to 
+</p>
+
+<p>
+This happens because the remote repo has changes that we do not have in our local repo that git cant fast forward .<br>
+→ git pull   // To Sync local branch <br>
+if by using git pull we still encounter merge conflict  then  - 
+</p>
+
+<p>
+→ git log --graph --oneline --all // this graph shows us different commits and positions in the tree . 
+</p>
+
+<p>
+→ git log -p origin/master // To look at the changes in the remote repo <br>
+// Now remove the conflict by opening the file and then save changes 
+</p>
+
+<p>
+→ git add abc.py // Now add this file <br>
+→ git commit // This type you are writing a Merge commit message<br>
+→ git push 
+</p>
+
+<h1>Pushing Remote Branches git push -u origin newbranchname</h1>
+
+<br>
+
+<h5>If you want to work on a beta version then create a new branch</h5>
+
+<br>
+
+<p>
+→ git checkout -b newbranch<br>
+→ now you can do whatever you want to do<br>
+→ git add abcddd.java <br>
+→ git commit -m "Adding a file "
+</p>
+
+<p>
+<b>Now if you want others to also be  able to see the things in your local new branch then how do you do this  ??</b>
+</p>
+
+<br>
+<br>
+
+<h5>→ git push -u origin newbranchname  // -u flag to create the branch upstream which is another way of referring to remote repo</h5>
+
+<br>
+
+<h1>Rebasing Your Changes (TO KEEP OUR HISTORY LINEAR)</h1>
+
+<br>
+
+<h5>Problem With 3-way Merge</h5>
+
+<p>
+<ul>
+<li>The problem with three way merges is that because of the split history, it's hard for us to debug when an issue is found in our code, and we need to understand where the problem was introduced. </li>
+</ul>
+</p>
+
+<h5>Benefits Of Rebasing ::</h5>
+
+<p>
+<ul>
+<li><b>Rebasing means changing the base commit that's used for our branch.</b> </li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li><b>By changing the base where our commits split from the branch history, we can replay the new commits on top of the new base.  This allows Git to do a fast forward merge and keep history linear.</b> </li>
+</ul>
+</p>
+
+<h5>git rebase branchname  COMMAND :: // followed by the branch we want to set as the new base</h5>
+
+<br>
+
+<h5>• When we do this, Git will try to replay our commits after the latest commit in that branch.</h5>
+
+<br>
+
+<h5>• This will work automatically if the changes are made in different parts of the files, but  will require manual intervention if the changes were made in other files.</h5>
+
+<br>
+
+<h5>EXAMPLE  ::</h5>
+
+<br>
+
+<p>
+→ git checkout master <br>
+→ git pull 
+</p>
+
+<h5>• At this point, the changes that we have in the beta branch can no longer be merged through fast forwarding into the master branch. That's because there's now an extra commit in the master that's not present in the beta branch .</h5>
+
+<br>
+
+<h5>• We'll do this with a rebase of the beta branch against master.</h5>
+
+<br>
+
+<p>
+→ git checkout bet<br>
+→ git rebase master   // It says that it rewound head and replayed our work on top of it.
+</p>
+
+<h5>The name of the branch corresponding to the rebase should be the one we want to start our work to be added upon i.e. this will now become our starting line and the changes in the feature / beta branch will be commited or added on top of this base or starting postion .</h5>
+
+<br>
+
+<h5>After rebasing we will checkout to beta branch and then do the mege to master .</h5>
+
+<br>
+
+<p>
+→ git log --graph --oneline -all <br>
+→ git checkout master <br>
+→ git merge  beta  // In this way were able to keep our history linear  <br>
+→ git push // To push changes back into the Remote  Repo 
+</p>
+
+<br>
+
+<h5>SUMMARY  FOR REBASE ::</h5>
+
+<p>
+<b>We had a feature branch created against an older commit from master. So we rebased our feature branch against the latest commit from master and then merged the feature branch back into master.</b> 
+</p>
+
+<br>
+
+<h5>TO GET RID OF A BRANCH FROM THE REMOTE REPO</h5>
+
+<br>
+
+<p>
+→ git push --delete origin branchname / "beta in this case"
+</p>
+
+<h5>TO DELETE A LOCAL BRANCH</h5>
+
+<p>
+→ git branch -d branchname / beta 
+</p>
+
+<br>
+<br>
+<br>
+
+<h1>Another Rebasing Example</h1>
+
+<br>
+
+<h5>To rebase the changes in the master branch when someone else also made changes</h5>
+
+<br>
+
+<p>
+This is a pretty common occurrence when you're working on a change that's small enough not to need a separate branch and your collaborators just happenedto commit something at the same time
+</p>
+
+<p>
+→ After making changes to your file save them and then commmit it 
+</p>
+
+<h5>→ git commit -a -m " Making Changes to the master branch"</h5>
+
+<br>
+
+<p>
+→ TO make sure that there are no merges but still we get to know if there have been any changes made to the origin/master branch in the repo  we use the git fetch 
+</p>
+
+<h5>→ git fetch  // It will  put the latest changes into the origin slash master branch but we won't apply them to our local master branch.</h5>
+
+<br>
+
+<p>
+If we now try to merge our changes then we end up with a 3-Way Merge Which We want to avoid so that we can keep the history linear . So To avoid doing this we will run git rebase
+</p>
+
+<h5>→ git rebase origin/master       // to rebase our changes  against those made by our colleague and keep history linear.</h5>
+
+<br>
+
+<p>
+If a conflict arises then fix it .
+</p>
+
+<h5>TO FIX THIS CONFLICT ::</h5>
+
+<p>
+→ Open the File and then choose which changes you want to keep 
+</p>
+
+<p>
+→ git add abc.py  // After Fixing The conflicts then add the file 	to the staging area.
+</p>
+
+<h5>→ git rebase --continue // Now The rebase is complete</h5>
+
+<p>
+→ git log --graph --oneline --all<br>
+→ git push
+</p>
+
+<br>
+<br>
+
+<p>
+<b>Generally, git rebase is an alternative to which command?</b><br>
+ Rebasing instead of merging rewrites history and maintains linearity, making for cleaner code.
+</p>
+
+<br>
+
+<h1>Best Practices for Collaboration</h1>
+
+<br>
+<br>
+
+<p>
+<ul>
+<li><b>It's a good idea to always synchronize your branches before starting any work on your own. </b></li>
+<li><b>Another common practice is to try and avoid having very large changes that modify a lot of different things. Instead, try to make changes as small as possible as long as they're self-contained. 	</b></li>
+</ul>
+</p>
+
+<p>
+<b>For example ::if you are renaming a variable for clarity reasons,you don't want to have code that adds new functionality in the same commit.It's better if you split it into different commit.This makes it easier to understand what's going on with each commit.</b> 
+</p>
+
+<p>
+<ul>
+<li><b>When working on a big change,it makes sense to have a separate feature branch. </b></li>
+</ul>
+<b>This lets you work on new changes while still enabling you to fix bugs in the other branch</b>
+</p>
+
+<p>
+<ul>
+<li><b>To make the final merge of the feature branch easier, it makes sense to regularly merge changes made on the master branch back onto the feature branch. </b></li>
+</ul>
+<b>This way, we won't end up with a huge number of merge conflicts when the final merge time comes around. </b>
+</p>
+
+<h5>IF YOU WANT TO HAVE MORE THAN A VERSION OF A PROJECT AT THE SAME TIME ::</h5>
+
+<br>
+
+<p>
+<ul>
+<li><b>Have the latest version of the project in the master branch and a stable version of the project on a separate branch.</b></li>
+</ul>
+</p>
+
+<br>
+
+<p>
+<b>You'll merge your changes into the separate branch whenever you declare  a stable release</b>
+</p>
+
+<h5>USE REBASE WITH CAUTION ::</h5>
+
+<br>
+
+<p>
+<b>Whenever we do a rebase, we're rewriting the history of our branch.The old commits get replaced with new commits, so they'll be based on different snapshots than the ones we had before and they'll have completely different hash sums. </b><br>
+<b>This works fine for local changes, but can cause a lot of trouble for changes that have been published and downloaded by other collaborators.</b>
+</p>
+
+<h5>• So as a general rule, you shouldn't rebase changes that have been pushed to remote repos.</h5>
+
+<br>
+<br>
+
+<h1>Conflict Resolution Cheat Sheet</h1>
+
+<br>
+<br>
+
+<h5>Merge conflicts are not uncommon when working in a team of developers, or on Open Source Software. Fortunately, GitHub has some good documentation on how to handle them when they happen:</h5>
+
+<br>
+<br>
+
+<p>
+<a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-merge-conflicts" title="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-merge-conflicts" class="https">https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-merge-conflicts</a><br>
+<a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-using-the-command-line" title="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-using-the-command-line" class="https">https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-using-the-command-line</a>
+</p>
+
+<p>
+You can also use  <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing" title="git rebase branch name" class="https">git rebase branch name</a> to change the base of the current branch to be branchname
+</p>
+
+<p>
+The git rebase command is a lot more powerful.  Check out <a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History" title="this link" class="https">this link</a>  for more information.
+</p>
+
+<h1>Practice Quiz: Solving Conflicts</h1>
+
+<br>
+
+<p>
+If you’re making changes to a local branch while another user has also made changes to the remote branch, which command will trigger a merge?<br>
+→ git push 
+</p>
+
+<p>
+Which of the following is a reason to use rebase instead of merging?
+</p>
+
+<p>
+→ When you want to keep a linear commit history linear .
+</p>
+
+
+	</div>
+
+	<br />
+
+	<div class='page-footer'>
+
+	</div>
+
+	<hr />
+
+	<div class='heading'>
+	<h1>MODULE 4 <a name='Git:MODULE 4'></a></h1>
+	</div>
+
+	<div class='content'>
+	<p>
+Created Sunday 22 March 2020
+</p>
+
+<h1>A Simple Pull Request on GitHub</h1>
+
+<br>
+
+<p>
+Fork Of  A Project is made automatically by Github When You Make Any Changes to the project in question .
+</p>
+
+<p>
+And If we submit changes to this file then it will create a new branch that we can send a pull request .
+</p>
+
+<h5>FORKING ::</h5>
+
+<br>
+
+<p>
+Forking is a way of creating a copy of the given repository so that it belongs to our user. i.e. our user will be able to  push changes to the forked copy, even when we can't push changes to the other repo. 
+</p>
+
+<p>
+TO COLLABORATE ON GITHUB ::<br>
+→ Create a fork of the repo <br>
+→ And then Work on that local fork
+</p>
+
+<h5>PULL REQUEST  ::</h5>
+
+<p>
+<b>A pull request is a commit or series of commits that you send to the ownerof the repository so that they incorporate it into their tree.</b> 
+</p>
+
+<p>
+After making changes to the forked repo we wil<b>l Propose file change</b> and then <br>
+<b>Create a new pull Request</b> 
+</p>
+
+<h1>The Typical Pull Request Workflow on GitHub</h1>
+
+<br>
+
+<p>
+To Work ON A repo that you have forked ::
+</p>
+
+<p>
+→ first fork a repo from github <br>
+→ then go and clone that repo <br>
+→ git clone link<br>
+→ cd name
+</p>
+
+<p>
+TO CREATE A README.md from cli <br>
+→ git checkout -b add -readme<br>
+→ atom Readme.md<br>
+→ git commit -m  " 	MAde a simple readme "<br>
+→ git push -u origin add-readme  // Pushing the new branch
+</p>
+
+<p>
+<b>→ Now Go to github and click on  pull request</b> 
+</p>
+
+<h5>Before creating a pull request its always important to check that the code will merge successfully .</h5>
+
+<br>
+
+<p>
+Why TO CReate A Pull Request ::<br>
+This lets the person that will approve the change  understand why they should merge the change into the main tree.Are we fixing a bug?This is a new feature tolet the project support more use cases.How will the project benefit from including our change?Whatever info might be useful tothe approver, record it here. 
+</p>
+
+<br>
+
+<h5>→ And After creating the pull request and entering the message for the author of the project click on</h5>
+
+<p>
+<b>CREATE PULL REQUEST</b>
+</p>
+
+<h5>.</h5>
+
+<br>
+
+<h5>Number Next to PULL REQUEST ACTS AS IDENTIFER FOR THE PULL REQUESTS::</h5>
+
+<br>
+<br>
+
+<p>
+<b>The number next to the name of our pull request is the identifier that's used in GitHub to track issues and pull requests .We can use this identifying number to access this pull request anytime we need it.</b> 
+</p>
+
+<br>
+
+<h1>Updating an Existing Pull Request</h1>
+
+<br>
+<br>
+
+<p>
+→ After Making Changes to the file/files that have been pointed out by the author in the comments <br>
+→	git commit -a -m "Added more info to the readme.me file"<br>
+→ git push 
+</p>
+
+<br>
+
+<h1>Squashing Changes</h1>
+
+<br>
+
+<h5>git rebase -i master COMMAND :: //   to create a single commit that includes both changes and a more detailed description than the one we submitted</h5>
+
+<br>
+
+<h5>pick keyword :: which takes the commits and rebases  them against the branch we selected .</h5>
+
+<br>
+
+<p>
+<b>This is what we do with git rebase in an earlier video when we alled it without the dash i flag. But now we can change the action to something else. </b><br>
+<b>The comments in the file tells us about all the different commands we can use for our commits.</b> 
+</p>
+
+<br>
+
+<h5>Squash keyword ::</h5>
+
+<br>
+
+<h5>When we choose squash, the commit messages are added together and an editor opens up to let us make any necessary changes</h5>
+
+<br>
+
+<h5>fixup keyword ::</h5>
+
+<br>
+
+<h5>When we choose fix up, the commit message for that commit is discarded.</h5>
+
+<br>
+
+<p>
+Now to do so <br>
+→ replace second  pick by squash if you want to combine the commit messages  <br>
+→ after we do this we get another file where we can edit the commit messages and combine them <br>
+→ git show // to see the latest commit and the changes in it.
+</p>
+
+<h5>git push -f COMMAND :: // To replace the old commits with the new one when we want to overwrite a commit and do not want to mege .</h5>
+
+<p>
+Forces git to push the snapshot into the repo as is .
+</p>
+
+<h5>This  push -f is required when we use rebase-i  cause the old commits are in the remote  repo  and we have a different commit in our local repo .</h5>
+
+<br>
+<br>
+
+<h1>Git Fork and Pull Request Cheat Sheet</h1>
+
+<br>
+
+<p>
+Check out the following link for more information<br>
+<a href="https://help.github.com/en/articles/about-pull-request-merges" title="https://help.github.com/en/articles/about-pull-request-merges" class="https">https://help.github.com/en/articles/about-pull-request-merges</a>
+</p>
+
+<br>
+<br>
+
+<h1>Practice Quiz: Pull Requests</h1>
+
+<br>
+
+<h5>What is the difference between using squash and fixup when rebasing?</h5>
+
+<br>
+
+<p>
+Squash combines the commit messages into one. Fixup discards the new commit messages.
+</p>
+
+<h5>What is a pull request?</h5>
+
+<br>
+
+<p>
+A request sent to the owner and collaborators of the target repository to pull your recent changes
+</p>
+
+<h5>Under what circumstances is a new fork created?</h5>
+
+<br>
+
+<p>
+When you want to experiment with changes without affecting the main repo.
+</p>
+
+<br>
+<br>
+
+<h1>What are code reviews?</h1>
+
+<br>
+
+<p>
+<b>GitHub and other repository hosting services offer tools for doing code reviews on their platform.</b> 
+</p>
+
+<h5>Code Review ::</h5>
+
+<br>
+
+<p>
+<b>Means Going through someone else's code, documention orconfiguration and checking that it all makes sense andfollows the expected patterns.</b> 
+</p>
+
+<h5>Goal Of a Code Review ::</h5>
+
+<br>
+
+<p>
+<b>To improve the project by making sure that changes are high quality. It also helps us make sure that the contents are easy to understand. That the style is consistent with the overall project. And that we don't forget any important cases.</b>
+</p>
+
+<br>
+
+<h1>The Code Review Workflow</h1>
+
+<br>
+
+<h5>Nit ::  A trivial comment or a suggestion</h5>
+
+<br>
+
+<h5>Sometimes, your reviewer might point out something small,that's not really critical.And the comment is mostly a suggestion for making the code better.These comments are usually prefixed, saying that it's a Nit.</h5>
+
+<br>
+<br>
+
+<p>
+<b>To avoid a lot of back and forth, it's a good idea to refer to a style guide that explains the preferred coding style for the project.</b>
+</p>
+
+<h1>How to Use Code Reviews in GitHub</h1>
+
+<br>
+
+<p>
+If you want to address the issues of the author <br>
+click on view changes <br>
+after that open the file in atom or code<br>
+→ atom readme.md<br>
+→ after saving the changes 
+</p>
+
+<h5>→ git commit -a --amend // This WIll edit the orginal commit</h5>
+
+<p>
+once we have done that we need to push the changes but as we have used --amend then we have to push using -f flag.
+</p>
+
+<p>
+→ git push -f 
+</p>
+
+<h5>Now some comments will say outdated as we have pushed new version since we have made the change .</h5>
+
+<br>
+
+<h5>Now we can resolve the conversation.</h5>
+
+<br>
+
+<h1>More Information on Code Reviews</h1>
+
+<br>
+
+<p>
+Check out the following links for more information:
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+<a href="http://google.github.io/styleguide/" title="http://google.github.io/styleguide/" class="http">http://google.github.io/styleguide/</a><br>
+<a href="https://help.github.com/en/articles/about-pull-request-reviews" title="https://help.github.com/en/articles/about-pull-request-reviews" class="https">https://help.github.com/en/articles/about-pull-request-reviews</a><br>
+<a href="https://medium.com/osedea/the-perfect-code-review-process-845e6ba5c31" title="https://medium.com/osedea/the-perfect-code-review-process-845e6ba5c31" class="https">https://medium.com/osedea/the-perfect-code-review-process-845e6ba5c31</a><br>
+<a href="https://smartbear.com/learn/code-review/what-is-code-review/" title="https://smartbear.com/learn/code-review/what-is-code-review/" class="https">https://smartbear.com/learn/code-review/what-is-code-review/</a>
+</div>
+</p>
+
+<br>
+
+<h1>Practice Quiz: Code Reviews</h1>
+
+<br>
+
+<h5>When should we respond to comments from collaborators and reviewers?</h5>
+
+<p>
+→ Always 
+</p>
+
+<h5>What is a nit?</h5>
+
+<p>
+A trivial comment or suggestion
+</p>
+
+<br>
+
+<h1>Managing Collaboration</h1>
+
+<br>
+
+<p>
+Have a style guide for your project and if you want to contribute to someone else's project then follow his/her style guide .
+</p>
+
+<br>
+
+<h5>Issue Tracker  ::</h5>
+
+<p>
+When it comes to coordinating who does what and when, a common strategy for active software projects is to use an issue tracker. 
+</p>
+
+<h5>Coordinating platforms btw Collaborators ::</h5>
+
+<p>
+telegram groups or Slack Channels 
+</p>
+
+<br>
+
+<h1>Tracking Issues</h1>
+
+<br>
+
+<h5>Issue Tracker/Bug Tracker</h5>
+
+<p>
+<ul>
+<li>An issue tracker tells us the tasks that need to be done, the state they're in andwho's working on them.</li>
+<li>The system also let's us add comments to the issue,these comments can be super helpful.They can give us more details about the problem,explain a way to solve it, or detail how to test if it's been solved.</li>
+<li>Issue trackers aren't just useful for people actively working on projects.They also let users report bugs when they come across them,even if they don't know how to solve the problem.</li>
+<li>Sometimes users come across problems that we never even thought possible.And having them report these issues through a bug tracker can help make our projects better.</li>
+<li>And the tracker can also help volunteers that want to start contributing to the project.</li>
+</ul>
+</p>
+
+<p>
+Bugzilla // Popular Bug Tracker<br>
+Github has an integrated issue tracker 
+</p>
+
+<h5>EXAMPLE ::</h5>
+
+<br>
+
+<p>
+→ create a new issue for a project <br>
+→ enter the apropriate title and write a detailed issue desciption .and if you know how to solve the issue then mention it in the description .<br>
+→ Submit the new issue .<br>
+→ the issue in the list have numbers like (#1) <br>
+<b>Each issue or pull request in a project has a unique number associated with it.</b> 
+</p>
+
+<br>
+<br>
+<br>
+
+<h5>To Solve An Issue</h5>
+
+<br>
+
+<h5>→ first assign yourself to it</h5>
+
+<p>
+→ Assignees on the right hand side of the issue page on github<br>
+→ Now fix the issue by making changes to the required file .<br>
+→ git commit -a <br>
+→ in the commit message after writing all the commit message and the extra information about the commit 
+</p>
+
+<h5>type this to close the issue :: Closes #issueno</h5>
+
+<p>
+→ type this at the end of the commit to close issue 1 
+</p>
+
+<h5>→ Closes #1</h5>
+
+<br>
+
+<h5>Now Save and push it</h5>
+
+<p>
+→ git push 
+</p>
+
+<h5>Now the issue has been resolved .</h5>
+
+<br>
+
+<h1>Continuous Integration (CI/CD)</h1>
+
+<br>
+
+<h5>Continuous Integration System ::</h5>
+
+<p>
+<ul>
+<li>A continuous integration system will build and test our code every time there's a change. This means that it will run whenever there's a new commit in the main branch of our code.</li>
+<li>It will also run for any changes that come in through pull request. </li>
+<li>In other words, if we have continuous integration configured for our project, we can automatically run our tests using the code in a pull request.</li>
+<li>This way, we can verify that the test will pass after the new changes get merged back into the tree and that means instead of hoping our collaborators will remember to properly test their code, we can rely on our automated testing system to do it for us</li>
+</ul>
+</p>
+
+<br>
+
+<h1>Continuous deployment/Continous Delivery</h1>
+
+<br>
+
+<p>
+<ul>
+<li>Continuous deployment means the new code is deployed often. The goal is to avoid roll outs with a lot of changes between two versions of a project and instead do incremental updates with only a few changes at a time.</li>
+<li>This allows errors to be caught and fixed early. Typical configurations include deploying a new version whenever a commit is merged into the main tree or whenever a branch is tagged for release. </li>
+</ul>
+</p>
+
+<h5>Some Famous CI/CD ::</h5>
+
+<p>
+<ul>
+<li>Jenkins CI/CD</li>
+<li>Gitlab - CI/CD</li>
+<li>Travis - Recommended CI/CD Github friendly popular (Can Access info from github projects )</li>
+</ul>
+</p>
+
+<br>
+
+<h1>Concepts OF CI/CD</h1>
+
+<br>
+
+<h2>1. Pipelines ::</h2>
+
+<p>
+<b>Pipelines specify the steps that need to run to get the result you want.</b>
+</p>
+
+<h5>Examples Of pipleline::</h5>
+
+<br>
+
+<p>
+<ul>
+<li><b>For a simple Python Project, the pipeline could be to just run the automated tests.</b></li>
+<li><b>For a web service written in Go, the pipeline could be compiled the program, run the unit tests and integration tests and finally deploy the code to a test instance.</b></li>
+</ul>
+</p>
+
+<h2>2. Artifacts ::</h2>
+
+<br>
+
+<p>
+<b>This is the name used to describe any files that are generated as part of the pipeline.This typically includes the compiled versions of the code but can include other generated files like PDFs forthe documentation or OS specific packages for easy installation.</b>
+</p>
+
+<h5>On top of this, you might want to keep the logs of the pipelines build and test stages to review if things fail.</h5>
+
+<br>
+
+<h5>When setting up CICD,we have to be careful about how we manage secrets.</h5>
+
+<br>
+
+<p>
+If our pipeline includes deploying a new version of the software to a test server,we need to somehow give the software that's running the pipeline access to our test server.
+</p>
+
+<h5>There are a bunch of different strategies to do this,like exchanging SSH keys or using application specific API tokens .</h5>
+
+<br>
+
+<h5>For some pipelines, it might be unavoidable to use one of these methods but be aware that you're giving access toyour test servers to the owner of the service that's running the pipeline for you.</h5>
+
+<br>
+
+<p>
+It's a bit like giving your house keys to the person checking your heating once a year. 
+</p>
+
+<p>
+<ol type="1" start="1">
+<li>So two things to remember, first, make sure the authorized entities for the test servers are not the same entities authorized to deploy on the production servers</li>
+</ol>
+<div style='padding-left: 30pt'>
+ That way, if there's any kind of compromise in the pipeline, your production server is not affected.
+</div>
+2 .Always have a plan to recover your access in case your pipeline gets compromised. 
+</p>
+
+<h5>HOW TO USE TRAVIS ?</h5>
+
+<br>
+
+<p>
+<ul>
+<li>If you want to set up Travis for your GitHub project,you can do that by logging into the Travis website at www.travis-ci.com using your GitHub account then enable the projects that you want to continuously integrate.</li>
+<li>After that, you'll need to add a configuration file to your project written in YAML format that states the language your project is in,in which steps to take for the pipeline.</li>
+<li>This file can be very simple if your project files are typical configuration for the language you're using but can also become very complex if you want to run a complicated pipeline with lots of stages and steps outside the defaults. </li>
+</ul>
+</p>
+
+<br>
+
+<h1>Additional Tools</h1>
+
+<br>
+
+<p>
+Check out the following links for more information:
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+<a href="https://arp242.net/diy.html" title="https://arp242.net/diy.html" class="https">https://arp242.net/diy.html</a> <br>
+<a href="https://help.github.com/en/articles/closing-issues-using-keywords" title="https://help.github.com/en/articles/closing-issues-using-keywords" class="https">https://help.github.com/en/articles/closing-issues-using-keywords</a><br>
+<a href="https://help.github.com/en/articles/setting-guidelines-for-repository-contributors" title="https://help.github.com/en/articles/setting-guidelines-for-repository-contributors" class="https">https://help.github.com/en/articles/setting-guidelines-for-repository-contributors</a> <br>
+<a href="https://www.infoworld.com/article/3271126/what-is-cicd-continuous-integration-and-continuous-delivery-explained.html" title="https://www.infoworld.com/article/3271126/what-is-cicd-continuous-integration-and-continuous-delivery-explained.html" class="https">https://www.infoworld.com/article/3271126/what-is-cicd-continuous-integration-and-continuous-delivery-explained.html</a><br>
+<a href="https://stackify.com/what-is-cicd-whats-important-and-how-to-get-it-right/" title="https://stackify.com/what-is-cicd-whats-important-and-how-to-get-it-right/" class="https">https://stackify.com/what-is-cicd-whats-important-and-how-to-get-it-right/</a><br>
+<a href="https://docs.travis-ci.com/user/tutorial/" title="https://docs.travis-ci.com/user/tutorial/" class="https">https://docs.travis-ci.com/user/tutorial/</a><br>
+<a href="https://docs.travis-ci.com/user/build-stages/" title="https://docs.travis-ci.com/user/build-stages/" class="https">https://docs.travis-ci.com/user/build-stages/</a>
+</div>
+</p>
+
+<br>
+
+<h1>Practice Quiz: Managing Collaboration</h1>
+
+<br>
+
+<h5>How do we reference issues in our commits with automatic links?</h5>
+
+<br>
+
+<p>
+By using one of the keywords followed by a hashtag and the issue number.
+</p>
+
+<h5>What is an artifact in terms of continuous integration/continuous delivery (CI/CD) pipelines?</h5>
+
+<br>
+
+<p>
+Any file generated as part of the CI/CD pipeline.
+</p>
+
+	</div>
+
+	<br />
+
+	<div class='page-footer'>
+
+	</div>
+
+	
+
+</div>
+
+</body>
+</html>
